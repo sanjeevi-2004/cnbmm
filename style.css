@@ -1,0 +1,149 @@
+/* ----------------------------
+   GLOBAL RESET & BASE STYLES
+----------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #333;
+  line-height: 1.5;
+  
+}
+
+
+.red{
+  color: #EB2027;
+}
+.blue{
+  color: #1C94D2;
+}
+
+/* SEARCH OVERLAY */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  z-index: 2000;
+}
+
+.search-overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* SEARCH BAR CONTAINER */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px 20px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(12px);
+  animation: scaleUp 0.4s ease forwards;
+  transform: scale(0.8);
+}
+
+/* Search Input */
+.search-container input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px;
+  width: 280px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.search-container input::placeholder {
+  color: #ccc;
+}
+
+/* Search Button */
+.search-container .search-submit {
+  background: #EB2027;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-container .search-submit:hover {
+  background: #EB2027;
+  transform: scale(1.1);
+}
+
+/* Close Button */
+.close-search {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.close-search:hover {
+  transform: rotate(90deg);
+}
+
+/* Search Bar Animation */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* MOBILE FRIENDLY */
+@media (max-width: 768px) {
+  .search-icon {
+    margin: 10px 0;
+  }
+
+  .search-container input {
+    width: 200px;
+  }
+}
+
+
+/* ----------------------------
+
+
+
+/*footer*/
+
+
+
+
+
+
+
+
+
+
+
+
+/* modern slider Wrapper */

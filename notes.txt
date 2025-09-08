@@ -1,0 +1,370 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root{
+      --gap-ratio: 0.12;
+      --radius: 28px;
+    }
+
+    .ms-section {
+      position: relative;
+      background: #f6f4ef;
+      overflow-x: hidden;
+      padding-top: 80px;
+      
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: #0f1720;
+    }
+
+    /* Progress Bar */
+    .ms-progress {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: rgba(0,0,0,0.08);
+      z-index: 9999;
+    }
+    .ms-progress .bar {
+      display: block; height: 100%;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      background: #111;
+    }
+
+    /* Pin area */
+    .ms-pin {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    .ms-panels {
+      position: relative;
+      width: min(1200px, 94%);
+      height: 100%;
+    }
+
+    .ms-panel {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1600px;
+      height: auto;
+      min-height: 60vh;
+
+      border-radius: var(--radius);
+      box-shadow: 0 18px 40px rgba(8,10,12,0.15);
+      overflow: hidden;
+      will-change: transform;
+      background: white;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Card Inner Layout */
+    .ms-panel .inner {
+      padding: clamp(28px, 4.5vw, 64px);
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ms-title {
+      font-weight: 800;
+      font-size: clamp(26px, 6vw, 52px);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .ms-desc {
+      font-size: clamp(18px, 2vw, 26px);
+      font-weight: 600;
+      line-height: 1.4;
+      max-width: 60ch;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Footer (Tags + Button) */
+    .ms-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ms-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ms-tags span {
+      background: #0f1720;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    /* Learn More Button */
+    .ms-btn {
+      padding: 10px 20px;
+      background: #0f1720;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .ms-btn:hover {
+      background: #16212d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* Card Colors */
+    .card-red   { background: #e74c51; }
+    .card-green { background: linear-gradient(180deg,#b2d7cc,#92c4b8); }
+    .card-blue  { background:#86cef2; }
+    .card-grey  { background: linear-gradient(180deg,#d7c6f0,#c2afe6); }
+    .card-black  { background: #CC998D }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      :root { --radius: 22px; }
+      .ms-title { font-size: clamp(26px, 7vw, 42px); }
+      .ms-panel { 
+        box-shadow: 0 10px 28px rgba(8,10,12,0.12);
+        min-height: 42vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root { 
+        --radius: 18px; 
+        --gap-ratio: 0.08; /* reduce gap on mobile */
+      }
+      .ms-title { font-size: clamp(22px, 8vw, 32px); }
+      .ms-tags span {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+      .ms-desc {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .ms-progress { height: 3px; }
+      .ms-panel {
+        min-height: 60vh; /* taller cards on mobile */
+      }
+      .ms-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="ms-section">
+    <div class="ms-progress"><span class="bar"></span></div>
+
+    <div class="ms-pin">
+      <div class="ms-panels">
+        
+        <!-- Card 1 -->
+        <section class="ms-panel card-red">
+          <div class="inner">
+            <h2 class="ms-title">Calibration</h2>
+            <p class="ms-desc">
+              Bluemed healthcare provides calibration services to ensure accuracy of vital components and electrical safety of biomedical equipment. <br>
+              Today hospitals and various medical sectors must meet increasing regulatory guidelines, higher quality standards and rapid technological growth.
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2 -->
+        <section class="ms-panel card-blue">
+          <div class="inner">
+            <h2 class="ms-title">Biomedical Maintenance</h2>
+            <p class="ms-desc">
+              Equipment Calibration <br>
+              Safety Inspection <br>
+              Equipment Repair <br>
+              Preventive Maintenance
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3 -->
+        <section class="ms-panel card-green">
+          <div class="inner">
+            <h2 class="ms-title">Spares and Accessories</h2>
+            <p class="ms-desc">
+              Bluemed HealthCare provides a wide range of Spares and Accessories to hospitals, clinics and laboratories with affordable cost and quality.
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4 -->
+        <section class="ms-panel card-grey">
+          <div class="inner">
+            <h2 class="ms-title">Our Services</h2>
+            <p class="ms-desc">
+              Bio-Medical Engineering Maintenance Services <br>
+              Bio-Medical Equipment Repair
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+          <!-- Card 1 -->
+        <section class="ms-panel card-black">
+          <div class="inner">
+            <h2 class="ms-title">Our Mission & Vission</h2>
+            <p class="ms-desc">
+             Our Vision is  to supply all hospitals, clinics and private practices with top notch surgical, cardiac, diagnostic equipment, Accessories, Spare Parts and its services.Our Mission is to
+Be a best service provider in Medical Technology Products 
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+       
+
+      </div>
+    </div>
+  </section>
+  
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector(".ms-section");
+    const pinElement = section.querySelector(".ms-pin");
+    const panels = gsap.utils.toArray(".ms-panel");
+    let masterTL;
+
+    function getPanelHeights() {
+      return panels.map(p => p.getBoundingClientRect().height);
+    }
+    function getGap(h) {
+      const ratio = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap-ratio')) || 0.12;
+      return Math.round(h * ratio);
+    }
+
+    function build() {
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      if (masterTL) masterTL.kill();
+
+      const heights = getPanelHeights();
+      const gaps = heights.map(h => getGap(h));
+      const totalScroll = heights.reduce((a, b) => a + b, 0);
+
+      const isMobile = window.innerWidth <= 768;
+      const xShift = isMobile ? 0 : 40;
+      const scaleFactor = isMobile ? 0.98 : 0.96;
+
+      // reset positions
+      let offsetY = 0;
+      panels.forEach((panel, i) => {
+        gsap.set(panel, {
+          y: offsetY,
+          x: 0,
+          scale: 1,
+          opacity: i === 0 ? 1 : 0,
+          zIndex: i,
+          force3D: true,
+        });
+        offsetY += heights[i];
+      });
+
+      masterTL = gsap.timeline({
+        defaults: { ease: "expo.inOut", duration: 1.2 },
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=" + totalScroll,
+          scrub: 1.2,
+          pin: pinElement,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          // 👇 removed snap so content can be read freely
+        }
+      });
+
+      panels.forEach((panel, i) => {
+        if (i === 0) return;
+        masterTL.to(panel, {
+          y: () => i * gaps[i],
+          x: () => i * xShift,
+          scale: scaleFactor,
+          opacity: 1,
+          onStart: () => gsap.set(panel, { zIndex: panels.length + i })
+        }, i - 0.25);
+      });
+
+      gsap.to(".ms-progress .bar", {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=" + totalScroll,
+          scrub: true
+        }
+      });
+    }
+
+    build();
+    window.addEventListener("resize", () => {
+      clearTimeout(window.resizedFinished);
+      window.resizedFinished = setTimeout(build, 200);
+    });
+  </script>

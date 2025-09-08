@@ -1,0 +1,2763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bluemed healthcare</title>
+  <link rel="stylesheet" href="style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!-- Header / Navbar -->
+<header id="main-header">
+  <!-- Logo Left -->
+  <div class="logo">
+    <img src="./logo.png" alt="Logo" />
+    <div class="logo-text">
+      <span class="blue">Blue<span class="red">Med</span> <span class="blue">Health</span><span class="red">care</span></span>
+      <small class="tagline">Dedication Beyond Measure</small>
+    </div>
+  </div>
+
+  <!-- Navigation Center -->
+  <div class="nav-container">
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" class="nav-item active">Home</a></li>
+        <li><a href="#team" class="nav-item">About</a></li>
+        <li><a href="#services" class="nav-item">Services</a></li>
+        <li><a href="#pricing" class="nav-item">Calibration</a></li>
+        <li><a href="#resources" class="nav-item">Products</a></li>
+        <li><a href="#spares" class="nav-item">Spares & Accessories</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Header Right: Icons -->
+  <div class="header-right">
+    <!-- Search Icon -->
+    <div class="search-icon">
+      <button id="searchBtn" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 1000 1000">
+          <path fill="currentColor" d="m746 641l254 255l-105 105l-254-254q-106 72-232 72q-169 0-289-120T0 410t120-289T409 1t289 120t120 289q0 127-72 231zm-65-231q0-113-79.5-193T409 137t-193 80t-80 193t80 192.5T409 682t192.5-79.5T681 410z"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Phone Icon -->
+    <div class="phone-icon">
+      <a href="tel:+1234567890">
+        <button id="phoneBtn" aria-label="Phone">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24c1.12.37 2.33.57 3.57.57c.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C10.07 21 3 13.93 3 5.5c0-.55.45-1 1-1H7.5c.55 0 1 .45 1 1c0 1.24.2 2.45.57 3.57c.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+          </svg>
+        </button>
+      </a>
+    </div>
+
+    <!-- Location Icon -->
+    <div class="location-icon">
+      <a href="https://goo.gl/maps/example" target="_blank">
+        <button id="locationBtn" aria-label="Location">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12 2C8.14 2 5 5.14 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.86-3.14-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+          </svg>
+        </button>
+      </a>
+    </div>
+
+    <!-- Hamburger Menu -->
+    <div class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- Sidebar Backdrop -->
+<div id="menuBackdrop" class="menu-backdrop"></div>
+
+<!-- Search Overlay -->
+<div id="searchOverlay" class="search-overlay">
+  <div class="search-box">
+    <input type="text" placeholder="Search..." id="searchInput" />
+    <button id="closeSearch" aria-label="Close Search">&times;</button>
+  </div>
+</div>
+<style>
+:root {
+  --accent: #1C94D2;
+  --header-height: 80px;
+}
+
+/* HEADER */
+#main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo img {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+}
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.logo-text span {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+.logo-text .tagline {
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+
+/* NAV CENTER */
+.nav-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+.nav-links a {
+  text-decoration: none;
+  color: #000;
+ font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  font-weight: 400;
+  font-size: 18px;
+  position: relative;
+  padding: 6px 2px;
+  transition: color 0.2s ease;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 100%;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after,
+.nav-links a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 700;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+
+/* RIGHT ICONS */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+.header-right button {
+  background: whitesmoke;
+  border: none;
+  color: #000;
+  font-size: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+.header-right button:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  z-index: 1201;
+}
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #000;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* SIDEBAR NAV (Mobile) */
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-container {
+    display: block;
+  }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100%;
+    width: 80%;
+    max-width: 320px;
+    background: #fff;
+    box-shadow: -5px 0 25px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 100px 30px 40px;
+    transition: right 0.4s ease-in-out;
+    z-index: 1100;
+  }
+  .nav-links.show {
+    right: 0;
+  }
+  .nav-links a {
+    font-size: 18px;
+    width: 100%;
+    display: block;
+    padding: 10px 0;
+  }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 600px) {
+  .logo img {
+    height: 45px;
+    width: 45px;
+  }
+  .logo-text span {
+    font-size: 16px;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  }
+  .nav-links a {
+    font-size: 16px;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  }
+  .header-right button {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* BACKDROP */
+.menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1005;
+}
+.menu-backdrop.show {
+  display: block;
+}
+
+/* SEARCH OVERLAY */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+}
+.search-overlay.active {
+  display: flex;
+}
+.search-box {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 40px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  max-width: 90%;
+  width: 350px;
+}
+.search-box input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  width: 100%;
+}
+.search-box button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 6px 12px;
+}
+
+</style>
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+const navLinks = document.getElementById("nav-links");
+const menuBackdrop = document.getElementById("menuBackdrop");
+const searchBtn = document.getElementById("searchBtn");
+const searchOverlay = document.getElementById("searchOverlay");
+const closeSearch = document.getElementById("closeSearch");
+const searchInput = document.getElementById("searchInput");
+
+// Toggle Menu
+menuToggle.addEventListener("click", () => {
+  const open = menuToggle.classList.toggle("open");
+  navLinks.classList.toggle("show", open);
+  menuBackdrop.classList.toggle("show", open);
+  menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+});
+
+// Close Sidebar on Backdrop Click
+menuBackdrop.addEventListener("click", () => {
+  menuToggle.classList.remove("open");
+  navLinks.classList.remove("show");
+  menuBackdrop.classList.remove("show");
+  menuToggle.setAttribute("aria-expanded", "false");
+});
+
+// Close Menu on Window Resize
+window.addEventListener("resize", () => {
+  if (window.innerWidth > 1024) {
+    navLinks.classList.remove("show");
+    menuBackdrop.classList.remove("show");
+    menuToggle.classList.remove("open");
+  }
+});
+
+// Search Overlay
+searchBtn.addEventListener("click", () => {
+  searchOverlay.classList.add("active");
+  searchInput.focus();
+});
+closeSearch.addEventListener("click", () => {
+  searchOverlay.classList.remove("active");
+});
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") searchOverlay.classList.remove("active");
+});
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Hero Section -->
+ <!-- HERO SECTION -->
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="slider">
+    <!-- First Slide: Video -->
+    <div class="slide active">
+      <video autoplay muted loop playsinline class="video-slide">
+        <source src="./4121618-uhd_3840_2160_25fps.mp4" type="video/mp4" />
+      </video>
+      <div class="overlay"></div>
+      <div class="content">
+        <span class="subtitle">— Trusted Products —</span>
+        <h1>Welcome</h1>
+        <p>
+          Bluemed Healthcare is Specialized in Biomedical Maintenance, Sales,
+          Service, Calibration and Supplying all Kind of Biomedical Equipment
+          Accessories and Spare Parts.
+        </p>
+        <button class="start-btn">Get In Touch</button>
+      </div>
+    </div>
+
+    <!-- Second Slide: Image -->
+    <div class="slide">
+      <img src="./pexels-shkrabaanthony-5215006.jpg" alt="Slide 2" class="hero-img" />
+      <div class="overlay"></div>
+      <div class="content">
+        <span class="subtitle">— Trusted Services —</span>
+        <h1>India's Leading and Fastest Growing Company.</h1>
+        <p>
+          Our vision is to provide quality products and services with
+          International Standard Healthcare Technology Management Solutions at a
+          cost affordable manner.
+        </p>
+        <button class="start-btn">Products</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Slider Navigation -->
+  <div class="slider-controls">
+    <span class="prev">&#10094;</span>
+    <span class="next">&#10095;</span>
+  </div>
+</section>
+
+<style>
+/* ----------------------------
+   HERO SECTION STYLING
+----------------------------- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+/* Slider Container */
+.slider {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Each Slide */
+.slide {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slide.active {
+  display: block;
+}
+
+/* Video & Image Responsive */
+.video-slide,
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Hero Content */
+.content {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  text-align: left;
+  color: #fff;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.subtitle {
+  display: block;
+  font-size: 18px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  color: #e0e0e0;
+}
+
+.content h1 {
+  font-size: 70px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 20px;
+  font-weight: 500;
+  line-height: 70px;
+}
+
+.content p {
+  font-size: 18px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.start-btn {
+  padding: 12px 28px;
+  background: #eb2027;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-btn:hover {
+  background: #1c94d2;
+}
+
+/* ----------------------------
+   SLIDER CONTROLS
+----------------------------- */
+.slider-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 20px;
+  z-index: 20;
+}
+
+/* Common Arrow Styles */
+.slider-controls span {
+  cursor: pointer;
+  color: #fff;
+  font-size: 30px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
+  user-select: none;
+}
+
+/* Hover Effect */
+.slider-controls span:hover {
+  transform: scale(1.1);
+}
+
+/* Entry Animations */
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reset (hidden by default until active) */
+.slide .content span,
+.slide .content h1,
+.slide .content p,
+.slide .content .start-btn {
+  opacity: 0;
+}
+
+/* Animate when active */
+.slide.active .content span {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.2s;
+}
+
+.slide.active .content h1 {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.slide.active .content p {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.6s;
+}
+
+.slide.active .content .start-btn {
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.8s;
+}
+
+/* ----------------------------
+   RESPONSIVENESS FIX
+----------------------------- */
+
+/* Tablet View */
+@media (max-width: 1024px) {
+  .hero {
+    height: 80vh;
+  }
+
+  .content {
+    left: 6%;
+    right: 6%;
+    max-width: 90%;
+    top: 55%;
+    transform: translateY(-50%);
+    text-align: left;
+  }
+
+  .content h1 {
+    font-size: 48px;
+  }
+
+  .content p {
+    font-size: 18px;
+  }
+
+  .start-btn {
+    padding: 12px 28px;
+    font-size: 16px;
+  }
+
+  /* Arrows to the extreme edges */
+  .slider-controls {
+    padding: 0;
+  }
+
+  .slider-controls .prev {
+    position: absolute;
+    left: 10px;
+  }
+
+  .slider-controls .next {
+    position: absolute;
+    right: 10px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .content {
+    left: 5%;
+    right: 5%;
+    top: 60%;
+    max-width: 90%;
+    transform: translateY(-50%);
+    text-align: left;
+    padding: 10px;
+  }
+
+  .content h1 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .content p {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .start-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .slider-controls span {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+  }
+
+  /* Arrows corner placement */
+  .slider-controls {
+    padding: 0;
+  }
+
+  .slider-controls .prev {
+    position: absolute;
+    left: 5px;
+  }
+
+  .slider-controls .next {
+    position: absolute;
+    right: 5px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .content {
+    top: 58%;
+    padding: 8px;
+  }
+
+  .content h1 {
+    font-size: 26px;
+  }
+
+  .content p {
+    font-size: 14px;
+  }
+
+  .start-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
+  /* Push arrows to corners */
+  .slider-controls .prev {
+    left: 2px;
+  }
+
+  .slider-controls .next {
+    right: 2px;
+  }
+}
+</style>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+
+let current = 0;
+let slideInterval;
+
+// Show specific slide
+const showSlide = (index) => {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === index) slide.classList.add("active");
+  });
+};
+
+const nextSlide = () => {
+  current = (current + 1) % slides.length;
+  showSlide(current);
+};
+
+const prevSlide = () => {
+  current = (current - 1 + slides.length) % slides.length;
+  showSlide(current);
+};
+
+next.addEventListener("click", () => {
+  nextSlide();
+  resetAutoSlide();
+});
+
+prev.addEventListener("click", () => {
+  prevSlide();
+  resetAutoSlide();
+});
+
+// Auto Slide every 5 seconds
+const startAutoSlide = () => {
+  slideInterval = setInterval(nextSlide, 5000);
+};
+
+const resetAutoSlide = () => {
+  clearInterval(slideInterval);
+  startAutoSlide();
+};
+
+startAutoSlide();
+</script>
+
+
+ 
+
+
+
+
+  
+
+
+ <!-- ================== Modern Vertical Scroll Slider ================== -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    :root{
+      --gap-ratio: 0.12;
+      --radius: 28px;
+    }
+
+    .ms-section {
+      position: relative;
+      background: #f6f4ef;
+      overflow-x: hidden;
+      padding-top: 80px;
+      
+      font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:black;
+    }
+
+    /* Progress Bar */
+    .ms-progress {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: rgba(0,0,0,0.08);
+      z-index: 9999;
+    }
+    .ms-progress .bar {
+      display: block; height: 100%;
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      background: #111;
+    }
+
+    /* Pin area */
+    .ms-pin {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+    }
+
+    .ms-panels {
+      position: relative;
+      width: min(1200px, 94%);
+      height: 100%;
+    }
+
+    .ms-panel {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 1600px;
+      height: auto;
+      min-height: 60vh;
+
+      border-radius: var(--radius);
+      box-shadow: 0 18px 40px rgba(8,10,12,0.15);
+      overflow: hidden;
+      will-change: transform;
+      background: white;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Card Inner Layout */
+    .ms-panel .inner {
+      padding: clamp(28px, 4.5vw, 64px);
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .ms-title {
+       font-size: 48px;
+         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 20px;
+  font-weight: 700;
+    }
+
+    .ms-desc {
+       font-size: 18px;
+       font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  line-height: 1.6;
+  margin-bottom: 20px;
+      max-width: 60ch;
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Footer (Tags + Button) */
+    .ms-footer {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ms-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .ms-tags span {
+      background: #0f1720;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 18px;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+      font-weight: 400;
+    }
+
+    /* Learn More Button */
+    .ms-btn {
+      padding: 10px 20px;
+      background: #0f1720;
+      color: white;
+      font-size: 18px;
+      font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+      font-weight: 400;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .ms-btn:hover {
+      background: #16212d;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+    }
+
+    /* Card Colors */
+    .card-red   { background:  #86cef2; }
+    .card-green { background: linear-gradient(180deg,#b2d7cc,#92c4b8); }
+    .card-blue  { background:#e74c51; }
+    .card-grey  { background: linear-gradient(180deg,#d7c6f0,#c2afe6); }
+    .card-black  { background: #CC998D }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      :root { --radius: 22px; }
+      .ms-title { font-size: clamp(26px, 7vw, 42px); }
+      .ms-panel { 
+        box-shadow: 0 10px 28px rgba(8,10,12,0.12);
+        min-height: 42vh;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root { 
+        --radius: 18px; 
+        --gap-ratio: 0.08; /* reduce gap on mobile */
+      }
+      .ms-title { font-size: clamp(22px, 8vw, 32px); }
+      .ms-tags span {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+      }
+      .ms-desc {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .ms-progress { height: 3px; }
+      .ms-panel {
+        min-height: 60vh; /* taller cards on mobile */
+      }
+      .ms-btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+
+
+  <section class="ms-section">
+    <div class="ms-progress"><span class="bar"></span></div>
+
+    <div class="ms-pin">
+      <div class="ms-panels">
+        
+        <!-- Card 1 -->
+        <section class="ms-panel card-red">
+          <div class="inner">
+            <h2 class="ms-title">Calibration</h2>
+            <p class="ms-desc">
+              Bluemed healthcare provides calibration services to ensure accuracy of vital components and electrical safety of biomedical equipment. <br>
+              Today hospitals and various medical sectors must meet increasing regulatory guidelines, higher quality standards and rapid technological growth.
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 2 -->
+        <section class="ms-panel card-blue">
+          <div class="inner">
+            <h2 class="ms-title">Biomedical Maintenance</h2>
+            <p class="ms-desc">
+              Equipment Calibration <br>
+              Safety Inspection <br>
+              Equipment Repair <br>
+              Preventive Maintenance
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 3 -->
+        <section class="ms-panel card-green">
+          <div class="inner">
+            <h2 class="ms-title">Spares and Accessories</h2>
+            <p class="ms-desc">
+              Bluemed HealthCare provides a wide range of Spares and Accessories to hospitals, clinics and laboratories with affordable cost and quality.
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Card 4 -->
+        <section class="ms-panel card-grey">
+          <div class="inner">
+            <h2 class="ms-title">Our Services</h2>
+            <p class="ms-desc">
+              Bio-Medical Engineering Maintenance Services <br>
+              Bio-Medical Equipment Repair
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>Products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+          <!-- Card 1 -->
+        <section class="ms-panel card-black">
+          <div class="inner">
+            <h2 class="ms-title">Our Mission & Vission</h2>
+            <p class="ms-desc">
+             Our Vision is  to supply all hospitals, clinics and private practices with top notch surgical, cardiac, diagnostic equipment, Accessories, Spare Parts and its services.Our Mission is to
+Be a best service provider in Medical Technology Products 
+            </p>
+            <div class="ms-footer">
+              <div class="ms-tags">
+                <span>ISO 9001 : 2015 Accredited.</span>
+                <span>products</span>
+                <span>More</span>
+              </div>
+              <a href="#" class="ms-btn">Learn More</a>
+            </div>
+          </div>
+        </section>
+       
+
+      </div>
+    </div>
+  </section>
+  
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const section = document.querySelector(".ms-section");
+    const pinElement = section.querySelector(".ms-pin");
+    const panels = gsap.utils.toArray(".ms-panel");
+    let masterTL;
+
+    function getPanelHeights() {
+      return panels.map(p => p.getBoundingClientRect().height);
+    }
+    function getGap(h) {
+      const ratio = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gap-ratio')) || 0.12;
+      return Math.round(h * ratio);
+    }
+
+    function build() {
+      ScrollTrigger.getAll().forEach(st => st.kill());
+      if (masterTL) masterTL.kill();
+
+      const heights = getPanelHeights();
+      const gaps = heights.map(h => getGap(h));
+      const totalScroll = heights.reduce((a, b) => a + b, 0);
+
+      const isMobile = window.innerWidth <= 768;
+      const xShift = isMobile ? 0 : 40;
+      const scaleFactor = isMobile ? 0.98 : 0.96;
+
+      // reset positions
+      let offsetY = 0;
+      panels.forEach((panel, i) => {
+        gsap.set(panel, {
+          y: offsetY,
+          x: 0,
+          scale: 1,
+          opacity: i === 0 ? 1 : 0,
+          zIndex: i,
+          force3D: true,
+        });
+        offsetY += heights[i];
+      });
+
+      masterTL = gsap.timeline({
+        defaults: { ease: "expo.inOut", duration: 1.2 },
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=" + totalScroll,
+          scrub: 1.2,
+          pin: pinElement,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          // 👇 removed snap so content can be read freely
+        }
+      });
+
+      panels.forEach((panel, i) => {
+        if (i === 0) return;
+        masterTL.to(panel, {
+          y: () => i * gaps[i],
+          x: () => i * xShift,
+          scale: scaleFactor,
+          opacity: 1,
+          onStart: () => gsap.set(panel, { zIndex: panels.length + i })
+        }, i - 0.25);
+      });
+
+      gsap.to(".ms-progress .bar", {
+        scaleX: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: "+=" + totalScroll,
+          scrub: true
+        }
+      });
+    }
+
+    build();
+    window.addEventListener("resize", () => {
+      clearTimeout(window.resizedFinished);
+      window.resizedFinished = setTimeout(build, 200);
+    });
+  </script>
+
+
+
+ 
+
+
+
+
+
+
+
+<!-- GSAP CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<section class="about-section">
+  <h2>About Us</h2>
+  <blockquote>
+    Bluemed Healthcare is heartily dedicated to providing integrated Health Care Technology management services.
+    Established in the year 2016 with the vision of providing Clinical engineering services and its related products, spares, etc.
+    <br><br>
+    Bluemed Healthcare is one of India's Leading and Fastest growing Company.
+  </blockquote>
+
+  <div class="people">
+    <button class="cta-btn">More</button>
+  </div>
+</section>
+
+<style>
+  /* -------- Base Styling -------- */
+  .about-section {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+    color: #0f1c2e;
+    line-height: 1.6;
+    text-align: left;
+  }
+
+  /* -------- Heading -------- */
+  .about-section h2 {
+    font-size: 48px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-left: -100px;
+    opacity: 0; 
+    transform: translateY(40px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* -------- Blockquote -------- */
+  .about-section blockquote {
+    font-size: 18px;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+            
+    line-height: 1.6;
+    margin: 0 0 40px;
+    position: relative;
+    color: #0f1c2e;
+    opacity: 0; 
+    transform: translateY(40px);
+  }
+
+  .about-section blockquote::before {
+    content: '"';
+    font-size: 2rem;
+    color: #9d9075;
+    position: absolute;
+    left: -20px;
+    top: -10px;
+  }
+
+ 
+
+  /* -------- CTA Button -------- */
+  .about-section .cta-btn {
+    background-color: #0f1c2e;
+    color: #fff;
+    font-size: 18px;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+    font-weight: 500;
+    padding: 12px 28px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+    opacity: 0; 
+    transform: translateY(30px);
+  }
+
+  .about-section .cta-btn:hover {
+    background-color: #222f44;
+  }
+
+  /* -------- Responsive Styling -------- */
+
+  /* Tablets (1024px and below) */
+  @media (max-width: 1024px) {
+    .about-section {
+      padding: 0 40px;
+    }
+
+    .about-section h2 {
+      font-size: 40px;
+      margin-left: 0;
+    }
+
+    .about-section blockquote {
+      font-size: 17px;
+    }
+
+    .about-section .cta-btn {
+      font-size: 17px;
+      padding: 10px 24px;
+    }
+  }
+
+  /* Large Mobiles (768px and below) */
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 0 20px;
+    }
+
+    .about-section h2 {
+      font-size: 32px;
+      margin-left: 0;
+      text-align: center;
+    }
+
+    .about-section blockquote {
+      font-size: 16px;
+      text-align: justify;
+    }
+
+    .about-section .cta-btn {
+      font-size: 16px;
+      padding: 10px 22px;
+      display: block;
+      margin: 20px auto;
+    }
+  }
+
+  /* Small Mobiles (480px and below) */
+  @media (max-width: 480px) {
+    .about-section {
+      padding: 0 15px;
+      margin: 50px auto;
+    }
+
+    .about-section h2 {
+      font-size: 26px;
+    }
+
+    .about-section blockquote {
+      font-size: 15px;
+    }
+
+    .about-section .cta-btn {
+      font-size: 15px;
+      padding: 8px 18px;
+    }
+  }
+
+  /* Extra Small Mobiles (360px and below) */
+  @media (max-width: 360px) {
+    .about-section h2 {
+      font-size: 22px;
+    }
+
+    .about-section blockquote {
+      font-size: 14px;
+    }
+
+    .about-section .cta-btn {
+      font-size: 14px;
+      padding: 7px 16px;
+    }
+  }
+</style>
+
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.timeline({
+    scrollTrigger: {
+      trigger: ".about-section",
+      start: "top 80%",
+      toggleActions: "restart none none reverse",
+      once: false
+    }
+  })
+  .to(".about-section h2", {opacity: 1, y: 0, duration: 0.8, ease: "power3.out"})
+  .to(".about-section blockquote", {opacity: 1, y: 0, duration: 0.8, ease: "power3.out"}, "-=0.4")
+  .to(".about-section .people span", {opacity: 1, y: 0, duration: 0.6, ease: "power3.out"}, "-=0.3")
+  .to(".about-section .cta-btn", {opacity: 1, y: 0, duration: 0.6, ease: "power3.out"}, "-=0.3");
+</script>
+
+
+
+
+  <div class="goned-block">
+    <!-- ===================== SLOGAN SLIDER ===================== -->
+    <section class="goned-slogan">
+      <div class="goned-slogan-row goned-marquee" data-direction="left">
+         <span>--Trusted Services Towards Healthcare--</span><span>--Trusted Services Towards Healthcare--</span><span>--Bluemed Healthcare--</span>
+      </div>
+      <div class="goned-slogan-row goned-marquee" data-direction="right">
+         <span>--Trusted Services Towards Healthcare--</span><span>--Trusted Services Towards Healthcare--</span><span>--Bluemed Healthcare--</span>
+      </div>
+    </section>
+ 
+
+
+
+<!-- PHONE OVERLAY -->
+<div id="contactOverlay" class="contact-overlay">
+  <div class="contact-content">
+    <button id="closeContact" class="close-contact" aria-label="Close Contact">&times;</button>
+
+    <section class="csec-wrapper">
+      <!-- Left Side -->
+      <div class="csec-info csec-reveal">
+        <h3>Contact Us</h3>
+        <h2>Have questions? <br> Get in touch!</h2>
+        <p>
+          Bluemed Healthcare is heartily dedicated to providing integrated Health Care Technology management services.
+          Established in 2016 with the vision of providing Clinical engineering services and its related products,
+          spares, etc.
+        </p>
+        <ul>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="40" height="0" viewBox="0 0 24 24" fill="#000000"><g fill="#000000"><path fill-rule="evenodd" d="M22 7a5 5 0 0 1-7.226 4.478a.817.817 0 0 0-.574-.067l-1.113.298a.65.65 0 0 1-.796-.796l.298-1.113a.817.817 0 0 0-.067-.574A5 5 0 1 1 22 7Zm-5-2.188c.518 0 .938.42.938.938v.313h.312a.937.937 0 1 1 0 1.875h-.313v.312a.937.937 0 1 1-1.875 0v-.313h-.312a.937.937 0 1 1 0-1.875h.313V5.75c0-.518.42-.938.937-.938Z" clip-rule="evenodd"/><path d="m8.038 7.316l.649 1.163c.585 1.05.35 2.426-.572 3.349c0 0-1.12 1.119.91 3.148c2.027 2.027 3.146.91 3.147.91c.923-.923 2.3-1.158 3.349-.573l1.163.65c1.585.884 1.772 3.106.379 4.5c-.837.836-1.863 1.488-2.996 1.53c-1.908.073-5.149-.41-8.4-3.66c-3.25-3.251-3.733-6.492-3.66-8.4c.043-1.133.694-2.159 1.53-2.996c1.394-1.393 3.616-1.206 4.5.38Z"/></g></svg> No.15A/6, Sri Nagar Annex 1st Street, Kolathur, Chennai, Tamilnadu - 600 099, India</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000000"><g fill="#000000"><path fill-rule="evenodd" d="M22 7a5 5 0 0 1-7.226 4.478a.817.817 0 0 0-.574-.067l-1.113.298a.65.65 0 0 1-.796-.796l.298-1.113a.817.817 0 0 0-.067-.574A5 5 0 1 1 22 7Zm-5-2.188c.518 0 .938.42.938.938v.313h.312a.937.937 0 1 1 0 1.875h-.313v.312a.937.937 0 1 1-1.875 0v-.313h-.312a.937.937 0 1 1 0-1.875h.313V5.75c0-.518.42-.938.937-.938Z" clip-rule="evenodd"/><path d="m8.038 7.316l.649 1.163c.585 1.05.35 2.426-.572 3.349c0 0-1.12 1.119.91 3.148c2.027 2.027 3.146.91 3.147.91c.923-.923 2.3-1.158 3.349-.573l1.163.65c1.585.884 1.772 3.106.379 4.5c-.837.836-1.863 1.488-2.996 1.53c-1.908.073-5.149-.41-8.4-3.66c-3.25-3.251-3.733-6.492-3.66-8.4c.043-1.133.694-2.159 1.53-2.996c1.394-1.393 3.616-1.206 4.5.38Z"/></g></svg>+91 44 4386 5799</li>
+          <li><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="#000000"><g fill="#000000"><path fill-rule="evenodd" d="M22 7a5 5 0 0 1-7.226 4.478a.817.817 0 0 0-.574-.067l-1.113.298a.65.65 0 0 1-.796-.796l.298-1.113a.817.817 0 0 0-.067-.574A5 5 0 1 1 22 7Zm-5-2.188c.518 0 .938.42.938.938v.313h.312a.937.937 0 1 1 0 1.875h-.313v.312a.937.937 0 1 1-1.875 0v-.313h-.312a.937.937 0 1 1 0-1.875h.313V5.75c0-.518.42-.938.937-.938Z" clip-rule="evenodd"/><path d="m8.038 7.316l.649 1.163c.585 1.05.35 2.426-.572 3.349c0 0-1.12 1.119.91 3.148c2.027 2.027 3.146.91 3.147.91c.923-.923 2.3-1.158 3.349-.573l1.163.65c1.585.884 1.772 3.106.379 4.5c-.837.836-1.863 1.488-2.996 1.53c-1.908.073-5.149-.41-8.4-3.66c-3.25-3.251-3.733-6.492-3.66-8.4c.043-1.133.694-2.159 1.53-2.996c1.394-1.393 3.616-1.206 4.5.38Z"/></g></svg> 73388 29001 / 002</li>
+          <li><i>✉️</i> info@bluemed.com</li>
+        </ul>
+      </div>
+
+      <!-- Right Side -->
+      <form class="csec-form csec-reveal">
+        <div class="csec-grid">
+          <input type="text" placeholder="Name" required>
+          <input type="email" placeholder="Email Address" required>
+          <input type="text" placeholder="Phone">
+          <input type="text" placeholder="Subject">
+        </div>
+        <textarea rows="4" placeholder="How can we help you? Feel free to get in touch!"></textarea>
+
+        <!-- Checkbox -->
+        <div class="csec-checkbox">
+          <input type="checkbox" id="csec-agree" required>
+          <label for="csec-agree">
+            I agree to the <a href="#">privacy policy</a>.
+          </label>
+        </div>
+
+        <button type="submit">Get In Touch</button>
+      </form>
+    </section>
+  </div>
+</div>
+
+<style>
+/* CONTACT OVERLAY */
+.contact-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,.7);
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 1300;
+  overflow-y: auto;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+}
+.contact-overlay.active { display: flex; }
+
+.contact-content {
+  position: relative;
+  max-width: 1100px;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 60px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  opacity: 0;
+  transform: translateY(50px) scale(0.95);
+}
+
+/* Close button */
+.close-contact {
+  position: fixed;
+  top: 20px; right: 20px;
+  background: var(--accent, #d32f2f);
+  color: #fff;
+  border: none;
+  font-size: 28px;
+  border-radius: 50%;
+  width: 44px; height: 44px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s;
+  z-index: 2000;
+}
+.close-contact:hover { background: #b71c1c; transform: rotate(90deg); }
+
+/* Layout */
+.csec-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: flex-start;
+}
+.csec-info h3 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent, #d32f2f);
+  margin-bottom: 10px;
+}
+.csec-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.csec-info p {
+  margin-bottom: 20px;
+  color: #666;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  line-height: 1.7;
+}
+.csec-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+.csec-info li {
+  margin-bottom: 14px;
+  font-size: 16px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Form */
+.csec-form {
+  background: #fafafa;
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.csec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.csec-form input,
+.csec-form textarea {
+  width: 100%; padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: border .3s, box-shadow .3s;
+}
+.csec-form input:focus,
+.csec-form textarea:focus {
+  border-color: var(--accent, #d32f2f);
+  box-shadow: 0 0 0 3px rgba(211,47,47,.2);
+  outline: none;
+}
+.csec-form button {
+  background: var(--accent, #d32f2f);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .3s, transform .2s;
+}
+.csec-form button:hover { background: #c62828; transform: translateY(-2px); }
+
+/* Checkbox Alignment */
+.csec-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  line-height: 1.4;
+  color: #555;
+}
+.csec-checkbox input[type="checkbox"] {
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+.csec-checkbox label {
+  cursor: pointer;
+}
+.csec-checkbox a {
+  color: var(--accent, #d32f2f);
+  text-decoration: none;
+  font-weight: 500;
+}
+.csec-checkbox a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .csec-wrapper {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 600px) {
+  .contact-content {
+    width: 95%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .csec-info h3 { font-size: 28px; }
+  .csec-info h2 { font-size: 18px; }
+  .csec-info p { font-size: 14px; }
+  .csec-info li { font-size: 14px; }
+  .csec-grid { grid-template-columns: 1fr; }
+}
+</style>
+
+<!-- GSAP Animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+const phoneBtn = document.getElementById('phoneBtn');
+const contactOverlay = document.getElementById('contactOverlay');
+const closeContact = document.getElementById('closeContact');
+const content = document.querySelector('.contact-content');
+const reveals = document.querySelectorAll('.csec-reveal');
+
+if (phoneBtn) {
+  phoneBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    contactOverlay.classList.add('active');
+    gsap.fromTo(content,
+      {opacity:0, y:50, scale:0.95},
+      {opacity:1, y:0, scale:1, duration:0.6, ease:"power3.out"}
+    );
+    gsap.from(reveals, {
+      opacity:0, y:30, duration:0.6, stagger:0.2, delay:0.3, ease:"power2.out"
+    });
+  });
+}
+
+closeContact.addEventListener('click', () => {
+  gsap.to(content, {opacity:0, y:50, scale:0.95, duration:0.4, ease:"power2.in", onComplete:()=> {
+    contactOverlay.classList.remove('active');
+  }});
+});
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeContact.click();
+  }
+});
+
+contactOverlay.addEventListener('click', (e) => {
+  if (e.target === contactOverlay) {
+    closeContact.click();
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+<section class="shop-by-room">
+  <div class="shop-header">
+    <h2>Our Products</h2>
+    <p>Quality Healthcare Products</p>
+  </div>
+
+  <div class="room-grid">
+    <div class="room-card">
+      <img src="./Alpha bed.jpg" alt="Alpha Bed">
+      <div class="room-content">
+        <h3>Alpha Bed</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./icu cot.jpg" alt="ICU Cot">
+      <div class="room-content">
+        <h3>ICU Cot</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./fetal monitor.jpg" alt="Fetal Monitor">
+      <div class="room-content">
+        <h3>Fetal Monitor</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./ecg machine.jpg" alt="ECG Machine">
+      <div class="room-content">
+        <h3>ECG Machine</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./biap machine.jpg" alt="BIAP Machine">
+      <div class="room-content">
+        <h3>BIAP Machine</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./multiparamonitor.jpg" alt="Multiparameter Monitor">
+      <div class="room-content">
+        <h3>Multiparameter</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./nibp cuff.jpg" alt="NIBP Cuff">
+      <div class="room-content">
+        <h3>NIBP Cuff</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+
+    <div class="room-card">
+      <img src="./oxygen concentrator.jpg" alt="Oxygen Concentrator">
+      <div class="room-content">
+        <h3>Oxygen Concentrator</h3>
+        <a href="#">View All →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.shop-by-room {
+  padding: 40px 20px;
+  background: #fff;
+  text-align: center;
+}
+
+.shop-header h2 {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  color: black;
+  margin-bottom: 8px;
+}
+
+.shop-header p {
+  color: #777;
+  font-size: 18px;
+  margin-bottom: 30px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.room-card {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Image styles */
+.room-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: transform 0.5s ease; /* Smooth transition */
+}
+
+/* Zoom image when hovering */
+.room-card:hover img {
+  transform: scale(1.1);
+}
+
+.room-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: white;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), rgba(0,0,0,0));
+}
+
+.room-content h3 {
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+  color: white;
+  -webkit-text-stroke: 1.2px #000000;
+  paint-order: stroke fill;
+}
+
+.room-content a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid white;
+  border-radius: 24px;
+  text-decoration: none;
+  color: white;
+  background: #30383B;
+  font-size: 14px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  transition: all 0.3s ease;
+}
+
+.room-content a:hover {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+</style>
+
+
+
+
+
+
+<!-- Working Hours + Contact Section -->
+<section class="working-hours-section">
+  <!-- Background video -->
+  <div class="video-wrapper">
+    <video autoplay muted loop playsinline preload="auto" class="wh-video-bg">
+      <source src="./Untitled video - Made with Clipchamp.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
+
+  <div class="wh-container">
+    <!-- Contact Box (Left Side) -->
+    <div class="wh-box fade-left">
+      <h2>CONTACT US</h2>
+      <p>Feel free to reach out to us anytime.</p>
+
+      <div class="wh-row"><span class="wh-day">Phone</span><span class="wh-time">91+ 44 4386 5799</span></div>
+      <div class="wh-row"><span class="wh-day">Email</span><span class="wh-time">info@bluemed.com</span></div>
+      <div class="wh-row"><span class="wh-day">Address</span><span class="wh-time">No.15A/6, Sri Nagar Annex <br> 1st Street, Kolathur,<br>
+Chennai, Tamilnadu - 600 099
+India</span></div>
+
+      <!-- Button -->
+      <div class="wh-btn-container">
+        <a href="#contact-form" class="wh-btn">More</a>
+      </div>
+    </div>
+
+    <!-- Working Hours Box (Right Side) -->
+    <div class="wh-box fade-right">
+      <h2>WORKING HOURS</h2>
+
+      <div class="wh-row"><span class="wh-day">Monday</span><span class="wh-time">9:00 AM – 6:00 PM</span></div>
+      <div class="wh-row"><span class="wh-day">Tuesday</span><span class="wh-time">9:00 AM – 6:00 PM</span></div>
+      <div class="wh-row"><span class="wh-day">Wednesday</span><span class="wh-time">9:00 AM – 6:00 PM</span></div>
+      <div class="wh-row"><span class="wh-day">Thursday</span><span class="wh-time">9:00 AM – 6:00 PM</span></div>
+      <div class="wh-row"><span class="wh-day">Friday</span><span class="wh-time">9:00 AM – 6:00 PM</span></div>
+      <div class="wh-row"><span class="wh-day">Saturday</span><span class="wh-time">9:00 AM – 6:00 PM</span></div>
+      <div class="wh-row"><span class="wh-day">Sunday</span><span class="wh-time">Closed</span></div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Main Section */
+.working-hours-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 40px;
+}
+
+/* Wrapper for Video (Fix for Responsiveness) */
+.video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  background: #000; /* fallback for slow networks */
+}
+
+/* Video Background */
+.wh-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: -1;
+  background-color: #000;
+}
+
+/* Container */
+.wh-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 1;
+}
+
+/* Info Box */
+.wh-box {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  color: black;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+/* Titles & Text */
+.wh-box h2 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.wh-box p {
+  font-weight: 400;
+  font-size: 18px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  line-height: 1.6;
+  margin-bottom: 25px;
+  color: black;
+}
+
+.wh-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 14px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+
+.wh-row:last-child {
+  border-bottom: none;
+}
+
+.wh-day {
+  font-size: 15px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  font-weight: 600;
+}
+
+.wh-time {
+  color: black;
+  font-weight: 600;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+}
+
+/* Button */
+.wh-btn-container {
+  margin-top: 20px;
+}
+
+.wh-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.wh-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Entry Animations */
+.fade-left {
+  transform: translateX(-60px);
+}
+.fade-right {
+  transform: translateX(60px);
+}
+.show {
+  opacity: 1 !important;
+  transform: translateX(0) translateY(0) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .wh-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .wh-box {
+    width: 90%;
+    padding: 25px;
+  }
+
+  .wh-box h2 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .working-hours-section {
+    padding: 20px;
+  }
+
+  .wh-box {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .wh-box h2 {
+    font-size: 22px;
+  }
+
+  .wh-row {
+    font-size: 13px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .wh-box h2 {
+    font-size: 20px;
+  }
+
+  .wh-row {
+    font-size: 12px;
+  }
+
+  .wh-btn {
+    padding: 8px 18px;
+    font-size: 13px;
+  }
+}
+</style>
+
+<script>
+// Intersection Observer for entry effects (retrigger on scroll)
+const boxes = document.querySelectorAll('.wh-box');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
+}, { threshold: 0.2 });
+
+boxes.forEach(box => observer.observe(box));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<!-- Font -->
+<section class="goned-slogan">
+  <div class="goned-slogan-row goned-marquee" data-direction="left">
+    <span>--Bio-Medical Equipements Sales & Services--</span>
+    <span>--Bio-Medical Equipements Sales & Services--</span>
+  </div>
+  <div class="goned-slogan-row goned-marquee" data-direction="right">
+    <span>--Bio-Medical Equipements Sales & Services--</span>
+    <span>--Bio-Medical Equipements Sales & Services--</span>
+  </div>
+</section>
+
+<style>
+  :root {
+    --goned-light: #e9e7e2;
+  }
+
+  /* Main Slogan Section */
+  .goned-slogan {
+    background: var(--goned-light);
+    overflow: hidden;
+    position: relative;
+    padding: 30px 0;
+    font-family: "Inter", system-ui, sans-serif; /* OLD FONT RESTORED */
+  }
+
+  /* Marquee Rows */
+  .goned-slogan-row {
+    display: flex;
+    white-space: nowrap;
+    font-size: clamp(2.2rem, 5vw, 3.5rem); /* ORIGINAL SIZE KEPT */
+    font-weight: 500; /* ORIGINAL WEIGHT KEPT */
+        font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+    color: #111;
+    margin: 10px 0;
+  }
+
+  /* Space Between Repeated Text */
+  .goned-slogan-row span {
+    margin-right: 2.2rem;
+  }
+
+  /* Fading Edge Effect */
+  .goned-slogan::before,
+  .goned-slogan::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 10%;
+    z-index: 2;
+  }
+
+  .goned-slogan::before {
+    left: 0;
+    background: linear-gradient(to right, var(--goned-light), transparent);
+  }
+  .goned-slogan::after {
+    right: 0;
+    background: linear-gradient(to left, var(--goned-light), transparent);
+  }
+
+  /* Tablet Responsiveness */
+  @media (max-width: 1024px) {
+    .goned-slogan {
+      padding: 24px 0;
+    }
+    .goned-slogan-row {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+    }
+    .goned-slogan-row span {
+      margin-right: 1.8rem;
+    }
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 768px) {
+    .goned-slogan {
+      padding: 18px 0;
+    }
+    .goned-slogan-row {
+      font-size: clamp(1.4rem, 3.2vw, 2.2rem);
+      margin: 8px 0;
+    }
+    .goned-slogan-row span {
+      margin-right: 1.2rem;
+    }
+  }
+
+  /* Extra Small Devices */
+  @media (max-width: 480px) {
+    .goned-slogan {
+      padding: 14px 0;
+    }
+    .goned-slogan-row {
+      font-size: 1.2rem;
+      margin: 6px 0;
+    }
+    .goned-slogan-row span {
+      margin-right: 0.8rem;
+    }
+  }
+</style>
+
+<!-- GSAP Animation -->
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll(".goned-slogan").forEach(section => {
+    let ctx = gsap.context(() => {
+      section.querySelectorAll(".goned-marquee").forEach(row => {
+        const direction = row.dataset.direction === "left" ? -1 : 1;
+
+        gsap.to(row, {
+          x: direction * -250,
+          ease: "none",
+          scrollTrigger: {
+            trigger: section,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: true
+          }
+        });
+      });
+    }, section);
+  });
+</script>
+
+
+
+<!-- Footer -->
+<section class="goned-footer">
+  <div class="goned-container">
+    <!-- Left Section -->
+    <div class="goned-left">
+      <!-- Social Links -->
+      <div class="goned-links">
+        <a href="#">LinkedIn</a>
+        <a href="#">WhatsApp</a>
+        <a href="#">Facebook</a>
+        <a href="#">Gmail</a>
+        <a href="#">X</a>
+      </div>
+
+      <!-- Heading -->
+      <h2>Need Quality Healthcare Products? <br>No Worries</h2>
+
+      <!-- Email -->
+      <div class="goned-email">
+        hello <span>@</span> <span class="blue">Blue</span><span class="red">med</span> healthcare
+      </div>
+    </div>
+
+    <!-- Right Navigation -->
+    <div class="goned-nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Calibration</a>
+      <a href="#">Spares & Accessories</a>
+      <a href="#">Services</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="goned-bottom">
+    <span>© 2025 Bluemed</span>
+    <div class="goned-bottom-links">
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</section>
+
+<!-- GSAP Animation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<style>
+/* ---------- Root Colors & Fonts ---------- */
+:root {
+  --goned-bg: #0d1117;
+  --goned-text: #ffffff;
+  --goned-muted: #9ca3af;
+  --goned-blue: #1c94d2;
+  --goned-red: #ff4b4b;
+  --goned-accent: #1c94d2;
+  --goned-container: min(1200px, 92vw);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background-color: #fff;
+}
+
+/* ---------- Footer Base ---------- */
+.goned-footer {
+  background: var(--goned-bg);
+  padding: 80px 0 40px;
+  color: var(--goned-text);
+}
+
+/* ---------- Container ---------- */
+.goned-footer .goned-container {
+  width: var(--goned-container);
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* ---------- Left Section ---------- */
+.goned-left {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* ---------- Social Links ---------- */
+.goned-links {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.goned-links a {
+  text-decoration: none;
+  font-size: clamp(0.9rem, 2vw, 1.05rem);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  font-weight: 500;
+  
+
+  color: var(--goned-muted);
+  transition: color 0.3s ease;
+}
+
+.goned-links a:hover {
+  color: var(--goned-accent);
+}
+
+/* ---------- Heading ---------- */
+.goned-footer h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  max-width: 600px;
+}
+
+/* ---------- Email ---------- */
+.goned-email {
+  font-size: clamp(1.2rem, 2.2vw, 2rem);
+  font-weight: 600;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  margin-bottom: 20px;
+  word-break: break-word;
+}
+
+.goned-email .blue {
+  color: var(--goned-blue);
+}
+
+.goned-email .red {
+  color: var(--goned-red);
+}
+
+/* ---------- Right Navigation ---------- */
+.goned-nav {
+  display: flex;
+  flex-wrap: nowrap;       /* ✅ Keep in single line on desktop */
+  gap: 28px;
+  align-items: center;
+  justify-content: flex-end;
+  max-width: 100%;
+}
+
+.goned-nav a {
+  text-decoration: none;
+  color: var(--goned-muted);
+  font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+  font-weight: 500;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  white-space: nowrap;    /* ✅ Prevent breaking on desktop */
+  transition: color 0.3s ease;
+}
+
+.goned-nav a:hover {
+  color: var(--goned-accent);
+}
+
+/* ---------- Bottom Bar ---------- */
+.goned-bottom {
+  width: var(--goned-container);
+  margin: auto;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  color: var(--goned-muted);
+}
+
+.goned-bottom a {
+  color: var(--goned-muted);
+  text-decoration: none;
+  margin-left: 20px;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+             Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans",
+             "Droid Sans", "Helvetica Neue", sans-serif;
+
+  transition: color 0.3s ease;
+}
+
+.goned-bottom a:hover {
+  color: var(--goned-accent);
+}
+
+/* ---------- Tablet Responsive (Shrink Fonts to Fit) ---------- */
+@media (max-width: 1024px) {
+  .goned-footer .goned-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 35px;
+  }
+
+  .goned-nav {
+    flex-wrap: wrap; /* ✅ Allow wrapping only when necessary */
+    justify-content: center;
+    gap: 22px;
+    padding-bottom: 5px;
+  }
+
+  .goned-nav a {
+    font-size: clamp(0.85rem, 1.3vw, 1rem); /* ✅ Slightly smaller for tablets */
+  }
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 768px) {
+  .goned-footer {
+    padding: 50px 20px;
+  }
+
+  .goned-footer .goned-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .goned-links {
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .goned-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  .goned-nav a {
+    font-size: 0.9rem;
+  }
+
+  .goned-footer h2 {
+    max-width: 90%;
+  }
+
+  .goned-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+/* ---------- Small Mobile ---------- */
+@media (max-width: 480px) {
+  .goned-footer {
+    padding: 40px 15px;
+  }
+
+  .goned-links {
+    gap: 12px;
+    font-size: 0.85rem;
+    justify-content: center;
+  }
+
+  .goned-nav {
+    gap: 14px;
+  }
+
+  .goned-nav a {
+    font-size: 0.8rem;
+  }
+
+  .goned-footer h2 {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+
+  .goned-email {
+    font-size: 1.05rem;
+  }
+}
+</style>
+
+
+
+
+
+
+
+
+<!-- GSAP curser -->
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+<style>
+  body {
+    cursor: none; /* hide default cursor on desktop */
+  }
+
+  /* Hide custom cursor on touch devices */
+  @media (hover: none) and (pointer: coarse) {
+    body {
+      cursor: auto; /* default touch cursor */
+    }
+    .cursor, .cursor-dot {
+      display: none !important;
+    }
+  }
+
+  /* Outer ring */
+  .cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border: 2px solid rgba(80, 80, 80, 0.6); 
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+  }
+
+  /* Inner dot */
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #1C94D2; 
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+  }
+
+  /* Ripple effect */
+  .ripple {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(80, 80, 80, 0.4);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.6;
+    z-index: 9999;
+  }
+</style>
+
+<div class="cursor"></div>
+<div class="cursor-dot"></div>
+
+<script>
+  const cursor = document.querySelector(".cursor");
+  const dot = document.querySelector(".cursor-dot");
+
+  // Disable on touch devices
+  if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+    cursor.style.display = "none";
+    dot.style.display = "none";
+  } else {
+    // Smooth movement
+    const moveCursorX = gsap.quickTo(cursor, "x", { duration: 0.35, ease: "power3" });
+    const moveCursorY = gsap.quickTo(cursor, "y", { duration: 0.35, ease: "power3" });
+    const moveDotX = gsap.quickTo(dot, "x", { duration: 0.15, ease: "power3" });
+    const moveDotY = gsap.quickTo(dot, "y", { duration: 0.15, ease: "power3" });
+
+    window.addEventListener("mousemove", e => {
+      moveCursorX(e.clientX);
+      moveCursorY(e.clientY);
+      moveDotX(e.clientX);
+      moveDotY(e.clientY);
+    });
+
+    // Click ripple effect
+    window.addEventListener("click", e => {
+      const ripple = document.createElement("div");
+      ripple.classList.add("ripple");
+      document.body.appendChild(ripple);
+      ripple.style.left = `${e.clientX}px`;
+      ripple.style.top = `${e.clientY}px`;
+
+      gsap.to(ripple, {
+        scale: 3,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => ripple.remove()
+      });
+    });
+  }
+</script>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
